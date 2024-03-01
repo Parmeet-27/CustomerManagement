@@ -1,0 +1,326 @@
+
+<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" /> -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,300,0,0" />
+<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+ <div class="container-fluid">
+    <div class="row d-flex-fill">
+        <div class="col-sm-9">
+            <h2>Customer Master</h2>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <form [formGroup]="customermasterForm">
+             
+             <!-- <form  #customermasterForm="ngForm" (ngSubmit)="CustomerMaster(customermasterForm)">  -->
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <div data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                    <!-- <span class="active"><i class="bi bi-chevron-double-down"></i></span> -->
+                                        <h4>Basic Information </h4>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse in">
+                            <!-- <div class="panel-body collapse-text">text.</div> -->
+                            <div class="panel-body collapse-text">
+                                <!-- 1st row -->
+                                <div class="row d-flex-fill ">
+                                    <div class="col-sm-4">                                    
+                                        <label for="" class="form-label">Account Number <span class="star">*</span></label>
+                                        <div [ngClass] ="{'error-container':customermasterForm.controls['accountNumber'].dirty && customermasterForm.hasError('required','accountNumber')}">
+                                            <input type="text" id="accountNumber"  class="form-control" formControlName="accountNumber">
+                                        </div>
+                                        <small *ngIf ="customermasterForm.controls['accountNumber'].dirty && customermasterForm.hasError('required','accountNumber')" class="text-danger">
+                                            *Account number is required</small>
+                                       <small *ngIf ="customermasterForm.controls['accountNumber'].dirty && customermasterForm.hasError('minlength','accountNumber')" class="text-danger">
+                                               <span class="error-icon">&#9888;</span>  *Account number should be 5 char.</small>
+                                    </div>
+                                    <!-- <div class="col-sm-4">
+                                        <label for="" class="form-label"> <span class="star">*</span></label>
+                                        <div [ngClass] ="{'error-container':customermasterForm.controls['accountno'].dirty && customermasterForm.hasError('required','accountno')}">
+                                            <input id="accountno" type="text" class="form-control" formControlName="accountno"> 
+                                        </div>                  
+                                        <small *ngIf ="customermasterForm.controls['accountno'].dirty && customermasterForm.hasError('required','accountno')" class="text-danger">
+                                            *Account Number is required.</small>
+                                       
+                                    </div> -->
+                                    <div class="col-sm-4">
+                                        <label for="" class="form-label">Name<span class="star">*</span></label>
+                                        <div [ngClass] ="{'error-container':customermasterForm.controls['name'].dirty && customermasterForm.hasError('required','name')}">
+                                            <input id="name" type="text" class="form-control" formControlName="name" >
+                                        </div>
+                                        
+                                        <small *ngIf ="customermasterForm.controls['name'].dirty && customermasterForm.hasError('required','name')" class="text-danger">
+                                             *Name is required.</small>
+                                    </div>
+                                    
+                                </div>
+                            <!-- 2nd Row -->
+                                <div class="row d-flex-fill">
+                                    <div class="col-sm-4">
+                                        <label for="" class="form-label">Registration Date</label>
+                                        <input id="registrationDate" type="date" class="form-control" formControlName="registrationDate" >
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="" class="form-label">Valid From<span class="star">*</span></label>
+                                        <div [ngClass] ="{'error-container':customermasterForm.controls['validFrom'].dirty && customermasterForm.hasError('required','validFrom')}">
+                                            <input  id="validFrom" type="datetime-local" class="form-control" formControlName="validFrom">
+                                        </div>
+                                        
+                                        <small *ngIf ="customermasterForm.controls['validFrom'].dirty && customermasterForm.hasError('required','validFrom')" class="text-danger">
+                                             *Please fill this field.</small>
+                                       
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="" class="form-label">Valid To</label>
+                                        <input id="validTo" type="datetime-local" class="form-control" formControlName="validTo" >
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label for="" class="form-label">Hazmat Certified</label>
+                                        <div class="form-check">
+                                            <label class="checkbox-inline" for="yes">
+                                                <input formControlName="hazmatCertified" class="form-check-input" type="checkbox" value="yes" >Yes
+                                              </label>
+                                              <label class="checkbox-inline" for="no">
+                                                <input  formControlName="hazmatCertified" class="form-check-input" type="checkbox" value="no" >No
+                                              </label>
+                                        </div>    
+                                    </div>
+                                </div>
+                            <!-- 3rd row -->
+                                <div class="row d-flex-fill">
+                                    <div class="col-sm-10">
+                                        <label for="" class="form-label">Note</label>
+                                        <textarea class="form-control" id="holdNote" formControlName="holdNote" rows="2" ></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            <!-- <form #addressForm="ngForm" (ngSubmit)="CorporateAddr(addressForm)"> -->
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <div data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                    <!-- <span class="active"><i class="bi bi-chevron-double-down"></i></span> -->
+                                        <h4>Corporate Address</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse in">
+                            
+                            <div class="panel-body collapse-text">
+                                <div class="row d-flex-fill">
+                                    <div class="col-sm-3">                                    
+                                        <label for="" class="form-label">Business Name <span class="star">*</span></label>
+                                        <div [ngClass] ="{'error-container':customermasterForm.controls['businessName'].dirty && customermasterForm.hasError('required','businessName')}">
+                                            <input type="text" id="businessName"  class="form-control" formControlName="businessName">
+                                        </div>
+                                        <small *ngIf ="customermasterForm.controls['businessName'].dirty && customermasterForm.hasError('required','businessName')" class="text-danger">
+                                            *Business name is required.</small>
+                                       <small *ngIf ="customermasterForm.controls['businessName'].dirty && customermasterForm.hasError('minlength','businessName')" class="text-danger">
+                                               <span class="error-icon">&#9888;</span>  *Business name should be 7 char.</small>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="" class="form-label">Address Type Id <span class="star">*</span></label>
+                                        <div [ngClass] ="{'error-container':customermasterForm.controls['addresstypeid'].dirty && customermasterForm.hasError('required','addresstypeid')}">
+                                            <input id="addresstypeid" type="number" class="form-control" formControlName="addresstypeid">
+                                        </div>
+                                        <small *ngIf ="customermasterForm.controls['addresstypeid'].dirty && customermasterForm.hasError('required','addresstypeid')" class="text-danger">
+                                            *Please fill this field. </small>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="" class="form-label">Phone number <span class="star">*</span></label>
+                                        <div [ngClass] ="{'error-container':customermasterForm.controls['phoneNumber'].dirty && customermasterForm.hasError('required','phoneNumber')}">
+                                            <input id="phoneNumber" type="text" class="form-control" formControlName="phoneNumber">
+                                        </div>
+                                        <small *ngIf ="customermasterForm.controls['phoneNumber'].dirty && customermasterForm.hasError('required','phoneNumber')" class="text-danger">
+                                            *Please fill this field. </small>
+                                            <small *ngIf ="customermasterForm.controls['phoneNumber'].dirty && customermasterForm.hasError('pattern','phoneNumber')" class="text-danger">
+                                                *Should be 10 digit. </small>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="" class="form-label">Email <span class="star">*</span></label>
+                                        <div [ngClass] ="{'error-container':customermasterForm.controls['email'].dirty && customermasterForm.hasError('required','email')}">
+                                            <input id="email" type="email" class="form-control" formControlName="email" >
+                                        </div>
+                                        <small *ngIf ="customermasterForm.controls['email'].dirty && customermasterForm.hasError('required','email')" class="text-danger">
+                                            *Please fill this field. </small>
+                                            <small *ngIf ="customermasterForm.controls['email'].dirty && customermasterForm.hasError('email','email')" class="text-danger">
+                                                *Enter valid email. </small>
+                                    </div>
+                                </div>                          
+                                <div class="row d-flex-fill">
+                                    <div class="col-sm-3">
+                                        <label for="" class="form-label">Country Code <span class="star">*</span></label>
+                                        <div [ngClass] ="{'error-container':customermasterForm.controls['countrycode'].dirty && customermasterForm.hasError('required','countrycode')}">
+                                            <select formControlName="countrycode" id="countrycode" class="form-control" >
+                                                <option value="" selected>Select</option>                        
+                                                <option value="1" >IN</option>
+                                                <option value="1" >US</option>
+                                                <option value="1" >AU</option>                                                
+                                                <option value="2" >EG</option>
+                                                <option value="3" >BZ</option>
+                                            </select>
+                                        </div>
+                                        <small *ngIf ="customermasterForm.controls['countrycode'].dirty && customermasterForm.hasError('required','countrycode')" class="text-danger">
+                                            *Please fill this field. </small>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="" class="form-label">Zip Code <span class="star">*</span></label>
+                                        <div [ngClass] ="{'error-container':customermasterForm.controls['zipcode'].dirty && customermasterForm.hasError('required','zipcode')}">
+                                         <input  id="zipcode" type="text" class="form-control" formControlName="zipcode" >
+                                        </div>
+                                        <small *ngIf ="customermasterForm.controls['zipcode'].dirty && customermasterForm.hasError('required','zipcode')" class="text-danger">
+                                            *Please fill this field. </small>
+                                        <small *ngIf ="customermasterForm.controls['zipcode'].dirty && customermasterForm.hasError('pattern','zipcode')" class="text-danger">
+                                                *Should be 5 digit. </small>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="" class="form-label">State/Province <span class="star">*</span></label>
+                                        <div [ngClass] ="{'error-container':customermasterForm.controls['state'].dirty && customermasterForm.hasError('required','state')}">
+                                        <select formControlName="state" id="state" class="form-control">
+                                            <option value="" selected>Select</option>
+                                            <option value="1" >Guj</option>
+                                            <option value="2" >Del</option>
+                                            <option value="3" >Goa</option>
+                                            <option value="4" >H</option>
+                                            <option value="5" >MP</option>
+                                            <option value="6" >WB</option>
+                                        </select>
+                                       </div>
+                                       <small *ngIf ="customermasterForm.controls['state'].dirty && customermasterForm.hasError('required','state')" class="text-danger">
+                                        *Please fill this field. </small>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="" class="form-label">City <span class="star">*</span></label>
+                                        <div [ngClass] ="{'error-container':customermasterForm.controls['city'].dirty && customermasterForm.hasError('required','city')}">
+                                            <select formControlName="city" id="city" class="form-control">
+                                                <option value="" selected>Select</option>
+                                                <option value="1" >Ahmedabad</option>
+                                                <option value="2" >Surat</option>
+                                                <option value="3" >Rajkot</option>
+                                                <option value="4" >Ambala</option>
+                                                <option value="5" >Hisar</option>
+                                            </select>
+                                        </div>
+                                           <small *ngIf ="customermasterForm.controls['city'].dirty && customermasterForm.hasError('required','city')" class="text-danger">
+                                            *Please fill this field. </small>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row d-flex-fill">
+                                    <div class="col-sm-3">
+                                        <label for="" class="form-label">Address Line 1 <span class="star">*</span></label>
+                                        <div [ngClass] ="{'error-container':customermasterForm.controls['addressLine1'].dirty && customermasterForm.hasError('required','addressLine1')}">
+                                            <input id="addressLine1" type="text" class="form-control" formControlName="addressLine1">
+                                        </div>
+                                        <small *ngIf ="customermasterForm.controls['addressLine1'].dirty && customermasterForm.hasError('required','addressLine1')" class="text-danger">
+                                            *Please fill this field. </small>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="" class="form-label">Address Line 2 <span class="star">*</span></label>
+                                        <div [ngClass] ="{'error-container':customermasterForm.controls['addressLine2'].dirty && customermasterForm.hasError('required','addressLine2')}">
+                                            <input id="addressLine2" type="text" class="form-control" formControlName="addressLine2">
+                                        </div>
+                                        <small *ngIf ="customermasterForm.controls['addressLine2'].dirty && customermasterForm.hasError('required','addressLine2')" class="text-danger">
+                                            *Please fill this field. </small>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="" class="form-label">Longitude</label>
+                                        <input id="longitude" type="number" class="form-control" formControlName="longitude" >
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="" class="form-label">Latitude</label>
+                                        <input id="latitude" type="number" class="form-control" formControlName="latitude">
+                                    </div>
+                                </div>
+                                
+                                
+                                <!-- <div class="row">
+                                    <div class="col-sm-9">
+                                        <label for="" class="form-label">Note</label>
+                                        <textarea class="form-control" id="addrnote" formControlName="addrnote" rows="2" ></textarea>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            
+            <!-- <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <div data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                                 <span class="active"><i class="bi bi-chevron-double-down"></i></span>
+                                    <h4>Corporate Contact</h4>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div id="collapse3" class="panel-collapse collapse in">
+                        
+                        <div class="panel-body collapse-text">
+                           
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                      <th scope="col">First Name<span class="material-symbols-outlined">
+                                        arrow_upward
+                                        </span></th>
+                                      <th scope="col">Last Name</th>
+                                      <th scope="col">Email</th>
+                                      <th scope="col">Phone</th>
+                                      <th scope="col">Primary Contact</th>
+                                      <th scope="col">Action</th>
+                                      
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                      <th scope="row">1</th>
+                                      <td>Mark</td>
+                                      <td>Otto</td>
+                                      <td>mdo</td>
+                                      <td>Mark</td>
+                                      <td>Otto</td>
+                                      
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">2</th>
+                                      <td>Mark</td>
+                                      <td>Otto</td>
+                                      <td>&#64;mdo</td>
+                                      <td>Mark</td>
+                                      <td>Otto</td>
+                                    </tr>                             
+                                  </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>  -->
+            <div class="row">
+                <div class="col-sm-9"></div>
+                <div class="col-sm-1">
+                    <button (click)="onSubmit()" id="submit" type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <div class="col-sm-1">
+                    <button routerLink = "/customer" id="cancel" type="button" class="btn btn-primary">Cancel</button>
+                </div>
+            </div>
+            
+            </form> 
+        </div>
+    </div>
+</div> 

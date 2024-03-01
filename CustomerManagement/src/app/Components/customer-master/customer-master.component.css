@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+.card {
+  /* box-shadow: 0px -1px 5px 0px; */
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  padding: 30px;
+  /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
+}
+/* .error-icon {
+  border: 1px solid red;
+  /* Add any other styling for the error state of the input 
+} */
+.error-container {
+  position: relative;
+  border: 1px solid red;
+  border-radius: 5px;
+}
+.star{
+  color: red;
+}
+
+.row {
+  padding-bottom: 20px;
+}
+#submit{
+  background-color: lightseagreen;
+ /* margin: 30px; */
+  
+}
+.nav-item {
+  position: relative;
+}
+
+.hiddenRow {
+  padding: 0 !important;
+}
